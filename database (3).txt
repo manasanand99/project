@@ -1,7 +1,7 @@
 user    (Uid ,name,email,dob,mobile ,address, password)
 vehicle (Vid,Vtype,manufacturer,driving-license,purchaseDate,rgNum,engineNum,chasisNum)
 plan    (Pid,Ptype,PYear,Pamount)
-claim   (CId,CAmount,CDate, CReason ,CResponse)
+claim   (CId,CAmount,CDate, CReason ,CResponse,policyId(FK))
 policy  (policyId ,Vid(FK) ,Uid(FK),Pid(FK))
 Ticket  (Tid , TType , policy(FK),CId(FK)) 
 =========================================
@@ -25,6 +25,9 @@ addOrUpdateUserWithPolicy(User,Plan,Vehicle)
 
 addTicketToPolicy(Ticket,policyId)
 
+getUserPolicyInfo()  //user getting the policy and vehicle details after login
+
+addAClaim(policyId,user,vehicle)
 
 in admin page:
 --------------
