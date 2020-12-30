@@ -25,7 +25,7 @@ addOrUpdateUserWithPolicy(User,Plan,Vehicle)
 
 addTicketToPolicy(Ticket,policyId)
 
-getUserPolicyInfo()  //user getting the policy and vehicle details after login
+getUserPolicyInfo(User)  //user getting the policy and vehicle details after login
 
 addAClaim(policyId,user,vehicle)
 
