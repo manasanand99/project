@@ -4,7 +4,7 @@ plan    (Pid,Ptype,PYear,Pamount)
 claim   (CId,CAmount,CDate, CReason ,CResponse,policyId(FK))
 policy  (policyId ,Vid(FK) ,Uid(FK),Pid(FK))
 Ticket  (Tid , TType , policy(FK),CId(FK)) 
-PremiumEstimate (Vmodel,price)
+PremiumEstimate (vmanufracturer,Vmodel,PYear,price)
 =========================================
 
 user - policy (1-M)
@@ -30,7 +30,7 @@ getUserPolicyInfo(User)  //user getting the policy and vehicle details after log
 
 addAClaim(policyId,user,vehicle)
 
-calculatePremium(Vmodel)
+calculatePremium(Vmanufracturer,Vmodel,PYears)
 in admin page:
 --------------
 getAllTickets()
