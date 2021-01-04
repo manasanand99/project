@@ -1,0 +1,43 @@
+user    (Uid ,name,email,dob,mobile ,address, password)
+vehicle (Vid,Vtype,manufacturer,driving-license,purchaseDate,rgNum,engineNum,chasisNum)
+plan    (Pid,Ptype,PYear,Pamount)
+claim   (CId,CAmount,CDate, CReason ,CResponse,policyId(FK))
+policy  (policyId ,Vid(FK) ,Uid(FK),Pid(FK))
+Ticket  (Tid , TType , policy(FK),CId(FK)) 
+PremiumEstimate (vmanufracturer,Vmodel,PYear,price)
+=========================================
+
+user - policy (1-M)
+policy - plan (1-1)
+policy - vehicle (1-1)
+policy - ticket (1-M)
+
+ticket - claim (1-1)
+
+
+===========================
+functionalities : 
+
+in insurance page :
+-----------------
+addOrUpdateUser(User)
+addPolicyToUser(Plan,Vehicle,userId) //this will generate new policy with plan and vehicle then assign that policy to user
+addOrUpdateUserWithPolicy(User,Plan,Vehicle)
+
+addTicketToPolicy(Ticket,policyId)
+
+getUserPolicyInfo(User)  //user getting the policy and vehicle details after login
+
+addAClaim(policyId,user,vehicle)
+
+calculatePremium(Vmanufracturer,Vmodel,PYears)
+in admin page:
+--------------
+getAllTickets()
+getAllUncheckedTickets() //tickets that have neither been approved nor rejected
+updateTicket(Ticket)
+getUserFromTicket(ticketId)
+getVehicleFromTicket(ticketId)
+getPolicyFromTicket(ticketId)
+getClaimfromTicket(ticketId)
+
