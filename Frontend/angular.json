@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "GeneralInsurance": {
+    "general-insurance": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,18 +17,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/GeneralInsurance",
+            "outputPath": "dist/general-insurance",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              
               "node_modules/bootstrap-css-only/css/bootstrap.css",
               "src/styles.css"
             ],
@@ -41,22 +44,20 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ]
             }
@@ -65,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "GeneralInsurance:build"
+            "browserTarget": "general-insurance:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "GeneralInsurance:build:production"
+              "browserTarget": "general-insurance:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "GeneralInsurance:build"
+            "browserTarget": "general-insurance:build"
           }
         },
         "test": {
@@ -113,15 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "GeneralInsurance:serve"
+            "devServerTarget": "general-insurance:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "GeneralInsurance:serve:production"
+              "devServerTarget": "general-insurance:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "GeneralInsurance"
+    }
+  },
+  "defaultProject": "general-insurance"
 }
