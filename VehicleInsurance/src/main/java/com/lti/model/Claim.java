@@ -20,4 +20,54 @@ public class Claim {
 	
 	@OneToOne(mappedBy="claim",cascade=CascadeType.ALL)
 	Policy policy;
+
+	public int getClaimId() {
+		return claimId;
+	}
+
+	public void setClaimId(int claimId) {
+		this.claimId = claimId;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public String getResponse() {
+		return response;
+	}
+
+	public void setResponse(String response) {
+		this.response = response;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public Policy getPolicy() {
+		return policy;
+	}
+
+	public void setPolicy(Policy policy) {
+		this.policy = policy;
+	}
+	
+	
 }

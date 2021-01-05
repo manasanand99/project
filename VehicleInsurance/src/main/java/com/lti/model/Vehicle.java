@@ -1,5 +1,7 @@
 package com.lti.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ public class Vehicle {
 	int vehicleId;
 	String vehicleType;
 	String manufacturer;
+	LocalDate purchaseDate; 
 	String drivingLicense;
 	String registrationNumber;
 	String engineNumber;
@@ -43,6 +46,13 @@ public class Vehicle {
 
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
+	}
+	public LocalDate getPurchaseDate() {
+		return purchaseDate;
+	}
+
+	public void setPurchaseDate(LocalDate purchaseDate) {
+		this.purchaseDate = purchaseDate;
 	}
 
 	public String getDrivingLicense() {
