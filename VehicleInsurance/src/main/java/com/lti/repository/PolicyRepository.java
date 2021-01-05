@@ -8,9 +8,9 @@ import com.lti.model.User;
 
 public interface PolicyRepository {
 	
-	public boolean addClaimToPolicy(Claim claim, int policyId);
+	public Claim addClaimToPolicy(Claim claim, int policyId);
 	
-	public Policy getUserPolicyInfo(User user);  //user getting the policy and vehicle details after login
+	public List<Policy> getUserPolicyInfo(int userId);  //user getting the policy and vehicle details after login
 	
 	public List<Claim> getClaimsByPolicy(int policyId);
 }

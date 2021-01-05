@@ -1,0 +1,49 @@
+package com.lti.repository;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+import com.lti.model.Claim;
+import com.lti.model.Policy;
+import com.lti.model.User;
+
+@Repository
+public class PolicyRepositoryImpl implements PolicyRepository {
+
+	@PersistenceContext
+	EntityManager em;
+	
+	@Override
+	public Claim addClaimToPolicy(Claim claim, int policyId) {
+		Policy policy = getPolicyById(policyId);
+		if (policy==null) return null;
+		List<Claim> policyClaims = policy.getClaims();
+		policyClaims.add(claim);
+		policy.setClaims(policyClaims);
+		claim.setPolicy(policy);
+		return em.merge(claim);
+	}
+
+	@Override
+	public List<Policy> getUserPolicyInfo(int userId) {
+		User user = em.find(User.class, userId);
+		if (user!=null) return user.getPolicies();
+		return null;
+	}
+
+	@Override
+	public List<Claim> getClaimsByPolicy(int policyId) {
+		Policy policy = getPolicyById(policyId);
+		if (policy==null) return null;
+		return policy.getClaims();
+	}
+	
+	public Policy getPolicyById(int policyId) {
+		return em.find(Policy.class, policyId);
+	}
+
+}

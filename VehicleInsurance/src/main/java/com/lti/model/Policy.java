@@ -1,6 +1,9 @@
 package com.lti.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,9 +25,8 @@ public class Policy {
 	@JoinColumn(name="vehicleId")
 	Vehicle vehicle;
 	
-	@OneToMany
-	@JoinColumn(name="claimId")
-	Claim claim;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "policy")
+	List<Claim> claims;
 	
 	@ManyToOne
 	@JoinColumn(name="userId")
@@ -54,12 +56,12 @@ public class Policy {
 		this.vehicle = vehicle;
 	}
 
-	public Claim getClaim() {
-		return claim;
+	public List<Claim> getClaims() {
+		return claims;
 	}
 
-	public void setClaim(Claim claim) {
-		this.claim = claim;
+	public void setClaims(List<Claim> claims) {
+		this.claims = claims;
 	}
 
 	public User getUser() {

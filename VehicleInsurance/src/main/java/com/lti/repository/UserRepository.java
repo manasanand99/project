@@ -5,10 +5,10 @@ import com.lti.model.User;
 import com.lti.model.Vehicle;
 
 public interface UserRepository {
-	public boolean addorUpdateUser(User user);
+	public User addorUpdateUser(User user);
 	
-	public boolean addOrUpdateUserWithPolicy(User user,Plan plan, Vehicle vehicle);
+	public User addOrUpdateUserWithPolicy(User user,Plan plan, Vehicle vehicle);
 	
-	public boolean addPolicyToUser(Plan plan, Vehicle vehicle, int userId);
+	public User addPolicyToUser(Plan plan, Vehicle vehicle, int userId);
 	
 }
