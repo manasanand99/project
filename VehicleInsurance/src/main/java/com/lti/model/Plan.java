@@ -1,6 +1,5 @@
 package com.lti.model;
 
-import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ public class Plan {
 	@Id
 	int planId;
 	String planType;
-	LocalDate year;
+	String year;
 	double amount;
 	
 	@OneToOne(mappedBy="plan",cascade=CascadeType.ALL)
@@ -36,11 +35,11 @@ public class Plan {
 		this.planType = planType;
 	}
 
-	public LocalDate getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(LocalDate year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 

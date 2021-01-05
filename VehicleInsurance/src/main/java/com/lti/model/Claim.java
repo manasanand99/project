@@ -16,6 +16,7 @@ public class Claim {
 	double amount;
 	LocalDate date;
 	String response;
+	String reason;
 	
 	@OneToOne(mappedBy="claim",cascade=CascadeType.ALL)
 	Policy policy;
