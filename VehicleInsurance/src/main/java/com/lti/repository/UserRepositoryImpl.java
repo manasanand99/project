@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -18,13 +19,12 @@ public class UserRepositoryImpl implements UserRepository {
 	@PersistenceContext
 	EntityManager em;
 	
-	@Override
+	@Transactional
 	public User addorUpdateUser(User user) {
-		// TODO Auto-generated method stub
 		return em.merge(user);
 	}
 
-	@Override
+	@Transactional
 	public User addOrUpdateUserWithPolicy(User user, Plan plan, Vehicle vehicle) {
 		Policy policy = new Policy();
 		policy.setPlan(plan);
@@ -37,7 +37,7 @@ public class UserRepositoryImpl implements UserRepository {
 		return em.merge(user);
 	}
 
-	@Override
+	@Transactional
 	public User addPolicyToUser(Plan plan, Vehicle vehicle, int userId) {
 		User user = findUserById(userId);
 		if (user==null) return null;

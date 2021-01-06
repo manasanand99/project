@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,7 +18,7 @@ public class PolicyRepositoryImpl implements PolicyRepository {
 	@PersistenceContext
 	EntityManager em;
 	
-	@Override
+	@Transactional
 	public Claim addClaimToPolicy(Claim claim, int policyId) {
 		Policy policy = getPolicyById(policyId);
 		if (policy==null) return null;
@@ -28,14 +29,12 @@ public class PolicyRepositoryImpl implements PolicyRepository {
 		return em.merge(claim);
 	}
 
-	@Override
 	public List<Policy> getUserPolicyInfo(int userId) {
 		User user = em.find(User.class, userId);
 		if (user!=null) return user.getPolicies();
 		return null;
 	}
 
-	@Override
 	public List<Claim> getClaimsByPolicy(int policyId) {
 		Policy policy = getPolicyById(policyId);
 		if (policy==null) return null;
