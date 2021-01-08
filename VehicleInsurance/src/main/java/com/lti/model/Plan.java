@@ -10,6 +10,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tbl_plan")
 public class Plan {
@@ -22,6 +24,7 @@ public class Plan {
 	double amount;
 	
 	@OneToOne(mappedBy="plan",cascade=CascadeType.ALL)
+	@JsonIgnore
 	Policy policy;
 
 	public int getPlanId() {

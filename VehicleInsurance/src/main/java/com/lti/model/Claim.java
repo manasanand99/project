@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tbl_claim")
 public class Claim {
@@ -19,12 +21,13 @@ public class Claim {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_claim")
 	int claimId;
 	double amount;
-	LocalDate date;
+	LocalDate claimDate;
 	String response;
 	String reason;
 	
 	@ManyToOne
 	@JoinColumn(name="policyId")
+	@JsonIgnore
 	Policy policy;
 
 	public int getClaimId() {
@@ -43,12 +46,14 @@ public class Claim {
 		this.amount = amount;
 	}
 
-	public LocalDate getDate() {
-		return date;
+
+
+	public LocalDate getClaimDate() {
+		return claimDate;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setClaimDate(LocalDate claimDate) {
+		this.claimDate = claimDate;
 	}
 
 	public String getResponse() {

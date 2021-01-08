@@ -11,6 +11,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tbl_vehicle")
 public class Vehicle {
@@ -27,6 +29,7 @@ public class Vehicle {
 	String chasisNumber;
 	
 	@OneToOne(mappedBy="vehicle",cascade=CascadeType.ALL)
+	@JsonIgnore
 	Policy policy;
 
 	public int getVehicleId() {

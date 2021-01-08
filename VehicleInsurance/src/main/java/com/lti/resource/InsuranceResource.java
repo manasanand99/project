@@ -51,11 +51,11 @@ public class InsuranceResource {
 	@PostMapping("/ClaimsByPolicy/{policyId}")
 	public Claim addClaimToPolicy(@RequestBody ClaimsDto claimsDto,@PathVariable("policyId") int policyId) {
 		Claim claim = new Claim();
-		claim.setAmount(claimsDto.getAmount());
+		claim.setAmount(0);
 		claim.setReason("Unchecked");
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		claim.setDate(LocalDate.parse(claimsDto.getDate(),formatter));
+		claim.setClaimDate(LocalDate.parse(claimsDto.getDate(),formatter));
 	
 		return policyService.addClaimToPolicy(claim, policyId);
 	}
@@ -89,4 +89,6 @@ public class InsuranceResource {
 	public List<Policy> getPolicyByUserId(@PathVariable("userid") int userId) {
 		return policyService.getUserPolicyInfo(userId);
 	}
+	
+	
 }

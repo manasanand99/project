@@ -42,10 +42,18 @@ public class UserRepositoryImpl implements UserRepository {
 	public User addPolicyToUser(Plan plan, Vehicle vehicle, int userId) {
 		User user = findUserById(userId);
 		if (user==null) return null;
+		plan = em.merge(plan);
+		
+		vehicle = em.merge(vehicle);
 		
 		Policy policy = new Policy();
 		policy.setPlan(plan);
+		plan.setPolicy(policy);
+		
 		policy.setVehicle(vehicle);
+		vehicle.setPolicy(policy);
+		
+		policy.setUser(user);
 		List<Policy> policies = user.getPolicies();
 		policies.add(policy);
 		

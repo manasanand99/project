@@ -14,6 +14,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tbl_policy")
 public class Policy {
@@ -35,6 +37,7 @@ public class Policy {
 	
 	@ManyToOne
 	@JoinColumn(name="userId")
+	@JsonIgnore
 	User user;
 
 	public int getPolicyId() {
