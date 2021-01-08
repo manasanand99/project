@@ -25,4 +25,9 @@ public class UserServiceImpl implements UserService {
 		return userRepository.addPolicyToUser(plan, vehicle, userId);
 	}
 
+	@Override
+	public boolean validateUserLogin(String emailId, String password) {
+		return userRepository.validateUserlogin(emailId, password);
+	}
+
 }

@@ -5,14 +5,19 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="tbl_user")
 public class User {
 	@Id
+	@SequenceGenerator(name="learn_user",initialValue=200,allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="learn_user")
 	int userId;
 	String name;
 	String email;

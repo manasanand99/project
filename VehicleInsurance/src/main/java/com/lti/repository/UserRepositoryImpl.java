@@ -3,6 +3,7 @@ package com.lti.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -54,6 +55,18 @@ public class UserRepositoryImpl implements UserRepository {
 	
 	public User findUserById(int userId) {
 		return em.find(User.class, userId);
+	}
+
+	//TODO
+	@Transactional
+	public boolean validateUserlogin(String emailId, String password) {
+		String jpql="select u from User u where u.email=:uname and u.password=:upass";
+		Query query=em.createQuery(jpql);
+		query.setParameter("uname", emailId);
+		query.setParameter("upass", password);
+		User user = (User) query.getSingleResult();
+		if (user!=null) return true;
+		return false;
 	}
 
 }

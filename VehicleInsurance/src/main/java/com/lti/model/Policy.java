@@ -4,17 +4,22 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbl_plan")
+@Table(name="tbl_policy")
 public class Policy {
 	@Id
+	@SequenceGenerator(name="seq_policy",initialValue=15000,allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_policy")
 	int policyId;
 	
 	@OneToOne

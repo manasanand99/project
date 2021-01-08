@@ -12,4 +12,6 @@ public User addorUpdateUser(User user);
 	
 	public User addPolicyToUser(Plan plan, Vehicle vehicle, int userId);
 	
+	public boolean validateUserLogin(String emailId, String password);
+	
 }

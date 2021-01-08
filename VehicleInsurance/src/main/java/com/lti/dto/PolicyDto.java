@@ -1,104 +1,75 @@
-package com.lti.model;
+package com.lti.dto;
 
-import java.time.LocalDate;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="tbl_vehicle")
-public class Vehicle {
-	@Id
-	@SequenceGenerator(name="seq_vehicle",initialValue=5000,allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_vehicle")
-	int vehicleId;
+public class PolicyDto {
+	String planType;
+	String year;
+	double amount;
 	String vehicleType;
 	String manufacturer;
-	LocalDate purchaseDate; 
+	String purchaseDate; 
 	String drivingLicense;
 	String registrationNumber;
 	String engineNumber;
 	String chasisNumber;
-	
-	@OneToOne(mappedBy="vehicle",cascade=CascadeType.ALL)
-	Policy policy;
-
-	public int getVehicleId() {
-		return vehicleId;
+	public String getPlanType() {
+		return planType;
 	}
-
-	public void setVehicleId(int vehicleId) {
-		this.vehicleId = vehicleId;
+	public void setPlanType(String planType) {
+		this.planType = planType;
 	}
-
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
 	public String getVehicleType() {
 		return vehicleType;
 	}
-
 	public void setVehicleType(String vehicleType) {
 		this.vehicleType = vehicleType;
 	}
-
 	public String getManufacturer() {
 		return manufacturer;
 	}
-
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-	public LocalDate getPurchaseDate() {
+	public String getPurchaseDate() {
 		return purchaseDate;
 	}
-
-	public void setPurchaseDate(LocalDate purchaseDate) {
+	public void setPurchaseDate(String purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
-
 	public String getDrivingLicense() {
 		return drivingLicense;
 	}
-
 	public void setDrivingLicense(String drivingLicense) {
 		this.drivingLicense = drivingLicense;
 	}
-
 	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
-
 	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
-
 	public String getEngineNumber() {
 		return engineNumber;
 	}
-
 	public void setEngineNumber(String engineNumber) {
 		this.engineNumber = engineNumber;
 	}
-
 	public String getChasisNumber() {
 		return chasisNumber;
 	}
-
 	public void setChasisNumber(String chasisNumber) {
 		this.chasisNumber = chasisNumber;
 	}
-
-	public Policy getPolicy() {
-		return policy;
-	}
-
-	public void setPolicy(Policy policy) {
-		this.policy = policy;
-	}
-	
 	
 }

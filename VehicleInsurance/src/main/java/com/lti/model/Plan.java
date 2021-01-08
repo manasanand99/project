@@ -3,14 +3,19 @@ package com.lti.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="tbl_plan")
 public class Plan {
 	@Id
+	@SequenceGenerator(name="seq_plan",initialValue=9000,allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_plan")
 	int planId;
 	String planType;
 	String year;

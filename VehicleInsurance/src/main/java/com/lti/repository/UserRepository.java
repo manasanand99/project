@@ -10,5 +10,7 @@ public interface UserRepository {
 	public User addOrUpdateUserWithPolicy(User user,Plan plan, Vehicle vehicle);
 	
 	public User addPolicyToUser(Plan plan, Vehicle vehicle, int userId);
+
+	public boolean validateUserlogin(String emailId, String password);
 	
 }
