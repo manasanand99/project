@@ -18,6 +18,7 @@ import { VehicleregisterComponent } from './vehicleregister/vehicleregister.comp
 import { PolicytypeComponent } from './policytype/policytype.component';
 import { Calc2WheelerComponent } from './calc2-wheeler/calc2-wheeler.component';
 import { Calc4WheelerComponent } from './calc4-wheeler/calc4-wheeler.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,13 +37,14 @@ import { Calc4WheelerComponent } from './calc4-wheeler/calc4-wheeler.component';
     VehicleregisterComponent,
     PolicytypeComponent,
     Calc2WheelerComponent,
-    Calc4WheelerComponent
+    Calc4WheelerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

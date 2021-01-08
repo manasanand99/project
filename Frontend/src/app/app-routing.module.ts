@@ -15,15 +15,16 @@ import { RenewinsuranceComponent } from './renewinsurance/renewinsurance.compone
 import { VehicleregisterComponent } from './vehicleregister/vehicleregister.component';
 
 const routes: Routes = [
-  {path:"home" , component:HomeComponent,
-  children : [
-    {path:"buy" , component:BuyinsuranceComponent},
-    {path:"renew", component:RenewinsuranceComponent},
-    {path:"claim", component:ClaiminsuranceComponent},
-    {path:"estimateCalc", component:EstimateCalcinsuranceComponent},
-]
-  },
-  {path:"home1", component:Home1Component},
+//   {path:"home" , component:HomeComponent,
+//   children : [
+//     {path:"buy" , component:BuyinsuranceComponent},
+//     {path:"renew", component:RenewinsuranceComponent},
+//     {path:"claim", component:ClaiminsuranceComponent},
+//     {path:"estimateCalc", component:EstimateCalcinsuranceComponent},
+// ]
+//   },
+{path:"",component:HomeComponent},
+  {path:"home", component:HomeComponent},
   {path:"buy", component:BuyinsuranceComponent},
   {path:"login" , component:LoginComponent},
   {path:"register", component:RegisterComponent},
@@ -32,7 +33,7 @@ const routes: Routes = [
   {path:"cal2wheeler", component:Calc2WheelerComponent},
   {path:"cal4wheeler", component:Calc4WheelerComponent},
   {path:"admin" , component:AdminComponent},
-  {path: "**", redirectTo: "home1"},
+  // {path: "**", redirectTo: "home"},
 
 ];
 

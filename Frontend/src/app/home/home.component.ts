@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  m?:boolean;
+  constructor(private router: Router,private loginComponent:LoginComponent) { }
   ngOnInit(): void {
+   this.m= this.loginComponent.loginValue;
+   console.log(this.m);
   }
 
+  vehiclefun() {
+    this.m=this.loginComponent.loginValue;
+    console.log(this.m);
+    if(this.m==true){
+      console.log(this.m);
+        this.router.navigateByUrl("/vehicleregister");
+    }
+    else{
+      this.router.navigateByUrl("/login"); 
+    }
+      
+  }
 }
