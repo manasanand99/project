@@ -10,7 +10,9 @@ Angular project config steps
 
 Java project configuration steps
 
-## Email IDs (temporary)
+# Resources (temporary section)
+
+## Email IDs
 lti.generalinsurance.group5@gmail.com
 
 lti.generalinsurance.group5@outlook.com
